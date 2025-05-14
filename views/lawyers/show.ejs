@@ -1,0 +1,32 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<div class="row mt-3">
+    <div class="col-8 offset-3">
+        <h3>Lawyers Details : </h3>
+    </div>
+    <div class="card col-5 offset-3 show-card" >
+        <img 
+        src="<%= lawyer.image %>" 
+        class="card-img-top show-img" 
+        alt="lawyer_image">
+        <div class="card-body">
+          <p class="card-text">
+            <b>Name : <%= lawyer.name %></b><br />
+            Specialization : <%= lawyer.specialization %><br/>
+            Work Experience : <%= lawyer.experience %><br/>
+            Phone No : <%= lawyer.contact_info.phone %><br/>
+            Email : <%= lawyer.contact_info.email %><br/>
+            City : <%= lawyer.city %><br/>
+            State : <%= lawyer.state %><br/>
+        </p>
+        </div>
+    </div>
+    <br />
+    <div class="btns">
+        <a href="/lawyers/<%= lawyer._id %>/edit" class="btn btn-dark col-1 offset-3 mb-4"">
+            Edit 
+        </a>
+         <form method="POST" action="/lawyers/<%= lawyer._id%>?_method=DELETE">
+            <button class="btn btn-dark offset-5 mb-4">Delete</button>
+        </form>
+    </div>
+</div>

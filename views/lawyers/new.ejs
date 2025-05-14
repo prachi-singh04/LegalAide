@@ -1,0 +1,78 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<div class="row mt-3">
+    <div class="col-7 offset-2">
+    <h3>Create your Profile</h3>
+    <form method="POST" action="/lawyers">
+        <div class="mb-3">
+            <lable for="name" class="form-label">Name</lable>
+            <input
+             name="lawyer[name]" 
+             placeholder="Enter your full name" 
+             type="text" 
+             class="form-control">
+        </div>
+        <div class="mb-3">
+            <lable for="specialization" class="form-label">Specialization</lable>
+            <input 
+            name="lawyer[specialization]" 
+            placeholder="Add your specific specialization" 
+            type="text"
+            class="form-control"
+            >
+        </div>
+        <div class="mb-3">
+            <lable for="image" class="form-label">Image Link</lable>
+            <input 
+            name="lawyer[image]" 
+            placeholder="Enter image URL" 
+            type="text"
+            class="form-control">
+        </div>
+        <div class="mb-3">
+            <lable for="experience" class="form-label">Work Experience</lable>
+            <input 
+            name="lawyer[experience]" 
+            placeholder="Enter your work experience" 
+            type="number"
+            class="form-control">
+        </div>
+        <div class="row">
+            <div class="mb-3 col-md-4">
+                <lable for="phone" class="form-label">Phone No.</lable>
+                <input 
+                name="lawyer[contact_info][phone]" 
+                placeholder="Enter your phone number"  
+                type="text"
+                class="form-control">
+            </div>
+            <div class="mb-3 col-md-8">
+                <lable for="email" class="form-label">Email</lable>
+                <input 
+                name="lawyer[contact_info][email]" 
+                placeholder="Enter your email address"  
+                type="text"
+                class="form-control">
+            </div>
+        </div>
+        <div class="mb-3">
+            <lable for="city" class="form-label">City</lable>
+            <input 
+            name="lawyer[city]" 
+            placeholder="Indore"  
+            type="text"
+            class="form-control">
+        </div>
+        <div class="mb-3">
+            <lable for="state" class="form-label">State</lable>
+            <input 
+            name="lawyer[state]" 
+            placeholder="Madhya Pradesh"  
+            type="text"
+            class="form-control">
+        </div>
+        <br/>
+        <button class="btn btn-dark edit-btn mt-3">Add</button>
+        <br/><br/>
+    </form>
+</div>
+</div>
