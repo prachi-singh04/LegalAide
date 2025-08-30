@@ -1,79 +1,129 @@
 <% layout("/layouts/boilerplate.ejs") %>
-<div class="row mt-3">
-    <div class="col-7 offset-2">
-    <h3>Edit your Details</h3>
-    <form method="POST" action="/lawyers/<%= lawyer._id %>?_method=PUT">
-        <div class="mb-3">
-            <lable for="name" class="form-label">Name</lable>
-            <input 
-            name="lawyer[name]" 
-            value="<%= lawyer.name %>" 
-            type="text" 
-            class="form-control">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <div class="text-center mb-4">
+                <h3>Edit Your Profile</h3>
+                <p class="text-muted">Update your professional information</p>
+                <a href="/lawyers/<%= lawyer._id %>" class="btn btn-outline-secondary btn-sm">
+                    <i class="fas fa-arrow-left me-2"></i>Back to Profile
+                </a>
+            </div>
+            
+            <div class="card">
+                <div class="card-body p-4">
+                    <form method="POST" action="/lawyers/<%= lawyer._id %>?_method=PUT">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">
+                                        <i class="fas fa-user me-2"></i>Full Name
+                                    </label>
+                                    <input 
+                                        name="lawyer[name]" 
+                                        value="<%= lawyer.name %>" 
+                                        type="text" 
+                                        class="form-control"
+                                        required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="specialization" class="form-label">
+                                        <i class="fas fa-briefcase me-2"></i>Specialization
+                                    </label>
+                                    <input 
+                                        name="lawyer[specialization]" 
+                                        value="<%= lawyer.specialization %>" 
+                                        type="text" 
+                                        class="form-control"
+                                        required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="image" class="form-label">
+                                        <i class="fas fa-image me-2"></i>Profile Image URL
+                                    </label>
+                                    <input 
+                                        name="lawyer[image]" 
+                                        value="<%= lawyer.image %>" 
+                                        type="url"
+                                        class="form-control"
+                                        required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="experience" class="form-label">
+                                        <i class="fas fa-clock me-2"></i>Years of Experience
+                                    </label>
+                                    <input 
+                                        name="lawyer[experience]" 
+                                        value="<%= lawyer.experience %>" 
+                                        type="number"
+                                        class="form-control"
+                                        min="0"
+                                        required>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">
+                                        <i class="fas fa-phone me-2"></i>Phone Number
+                                    </label>
+                                    <input 
+                                        name="lawyer[contact_info][phone]" 
+                                        value="<%= lawyer.contact_info.phone %>"  
+                                        type="tel"
+                                        class="form-control"
+                                        required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">
+                                        <i class="fas fa-envelope me-2"></i>Email Address
+                                    </label>
+                                    <input 
+                                        name="lawyer[contact_info][email]" 
+                                        value="<%= lawyer.contact_info.email %>"  
+                                        type="email"
+                                        class="form-control"
+                                        required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="city" class="form-label">
+                                        <i class="fas fa-city me-2"></i>City
+                                    </label>
+                                    <input 
+                                        name="lawyer[city]" 
+                                        value="<%= lawyer.city %>"  
+                                        type="text"
+                                        class="form-control"
+                                        required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="state" class="form-label">
+                                        <i class="fas fa-map me-2"></i>State
+                                    </label>
+                                    <input 
+                                        name="lawyer[state]" 
+                                        value="<%= lawyer.state %>"  
+                                        type="text"
+                                        class="form-control"
+                                        required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-dark btn-lg">
+                                <i class="fas fa-save me-2"></i>Update Profile
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="mb-3">
-            <lable for="specialization" class="form-label">Specialization</lable>
-            <input 
-            name="lawyer[specialization]" 
-            value="<%= lawyer.specialization %>" 
-            type="text" 
-            class="form-control">
-        </div>
-        <div class="mb-3">
-            <lable for="image" class="form-label">Image Link</lable>
-            <input 
-            name="lawyer[image]" 
-            value="<%= lawyer.image %>" 
-            type="text"
-            class="form-control">
-        </div>
-        <div class="mb-3">
-            <lable for="experience" class="form-label">Work Experience</lable>
-            <input 
-            name="lawyer[experience]" 
-            value="<%= lawyer.experience %>" 
-            type="number"
-            class="form-control">
-        </div>
-        <div class="row">
-        <div class="mb-3 col-md-4">
-            <lable for="phone" class="form-label">Phone No.</lable>
-            <input 
-            name="lawyer[contact_info][phone]" 
-            value="<%= lawyer.contact_info.phone %>"  
-            type="text"
-            class="form-control">
-        </div>
-        
-        <div class="mb-3 col-md-8">
-            <lable for="email" class="form-label">Email</lable>
-            <input 
-            name="lawyer[contact_info][email]" 
-            value="<%= lawyer.contact_info.email %>"  
-            type="text"
-            class="form-control">
-        </div>
-        </div>
-        <div class="mb-3">
-            <lable for="city" class="form-label">City</lable>
-            <input 
-            name="lawyer[city]" 
-            value="<%= lawyer.city %>"  
-            type="text"
-            class="form-control">
-        </div>
-       
-        <div class="mb-3">
-            <lable for="state" class="form-label">State</lable>
-            <input 
-            name="lawyer[state]" 
-            value="<%= lawyer.state %>"  
-            type="text"
-            class="form-control">
-        </div>
-        
-        <button class="btn btn-dark edit-btn mt-3">Edit</button>
-        <br/><br/>
-    </form>
-</div>
+    </div>
 </div>

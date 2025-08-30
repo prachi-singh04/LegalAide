@@ -1,20 +1,39 @@
 <% layout("/layouts/boilerplate.ejs") %>
-<body>
-    <h3>All Lawyers</h3>
-    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h3>Our Legal Professionals</h3>
+            <p class="text-center text-muted mb-4">Discover experienced lawyers ready to assist you with your legal needs</p>
+        </div>
+    </div>
+    
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
         <% for(let lawyers of allLawyers) { %>
-          <a href="/lawyers/<%=lawyers._id%>" class="lawyer-link">
-            <div class="card col" >
-                <img src="<%=lawyers.image%>" class="card-img-top" alt="lawyer_image" style="height:18rem">
-                <div class="card-img-overlay"></div>
-                <div class="card-body">
-                  <p class="card-text">
-                    <b><%= lawyers.name %> <br></b>
-                    <%= lawyers.specialization %>
-                  </p>
-                </div>
-              </div>
-            </a>
+            <div class="col">
+                <a href="/lawyers/<%=lawyers._id%>" class="lawyer-link">
+                    <div class="card h-100">
+                        <img src="<%=lawyers.image%>" class="card-img-top" alt="<%= lawyers.name %>" style="height: 18rem;">
+                        <div class="card-img-overlay"></div>
+                        <div class="card-body d-flex flex-column">
+                            <p class="card-text">
+                                <b><%= lawyers.name %></b><br>
+                                <span class="text-muted"><%= lawyers.specialization %></span>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
         <% } %>
     </div>
-</body>
+    
+    <% if (allLawyers.length === 0) { %>
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="alert alert-info" role="alert">
+                    <i class="fas fa-info-circle me-2"></i>
+                    No lawyers found. Be the first to add a profile!
+                </div>
+            </div>
+        </div>
+    <% } %>
+</div>

@@ -1,78 +1,129 @@
 <% layout("/layouts/boilerplate.ejs") %>
-<div class="row mt-3">
-    <div class="col-7 offset-2">
-    <h3>Create your Profile</h3>
-    <form method="POST" action="/lawyers">
-        <div class="mb-3">
-            <lable for="name" class="form-label">Name</lable>
-            <input
-             name="lawyer[name]" 
-             placeholder="Enter your full name" 
-             type="text" 
-             class="form-control">
-        </div>
-        <div class="mb-3">
-            <lable for="specialization" class="form-label">Specialization</lable>
-            <input 
-            name="lawyer[specialization]" 
-            placeholder="Add your specific specialization" 
-            type="text"
-            class="form-control"
-            >
-        </div>
-        <div class="mb-3">
-            <lable for="image" class="form-label">Image Link</lable>
-            <input 
-            name="lawyer[image]" 
-            placeholder="Enter image URL" 
-            type="text"
-            class="form-control">
-        </div>
-        <div class="mb-3">
-            <lable for="experience" class="form-label">Work Experience</lable>
-            <input 
-            name="lawyer[experience]" 
-            placeholder="Enter your work experience" 
-            type="number"
-            class="form-control">
-        </div>
-        <div class="row">
-            <div class="mb-3 col-md-4">
-                <lable for="phone" class="form-label">Phone No.</lable>
-                <input 
-                name="lawyer[contact_info][phone]" 
-                placeholder="Enter your phone number"  
-                type="text"
-                class="form-control">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <div class="text-center mb-4">
+                <h3>Create Your Profile</h3>
+                <p class="text-muted">Join our network of legal professionals</p>
+                <a href="/lawyers" class="btn btn-outline-secondary btn-sm">
+                    <i class="fas fa-arrow-left me-2"></i>Back to Lawyers
+                </a>
             </div>
-            <div class="mb-3 col-md-8">
-                <lable for="email" class="form-label">Email</lable>
-                <input 
-                name="lawyer[contact_info][email]" 
-                placeholder="Enter your email address"  
-                type="text"
-                class="form-control">
+            
+            <div class="card">
+                <div class="card-body p-4">
+                    <form method="POST" action="/lawyers">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">
+                                        <i class="fas fa-user me-2"></i>Full Name
+                                    </label>
+                                    <input
+                                        name="lawyer[name]" 
+                                        placeholder="Enter your full name" 
+                                        type="text" 
+                                        class="form-control"
+                                        required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="specialization" class="form-label">
+                                        <i class="fas fa-briefcase me-2"></i>Specialization
+                                    </label>
+                                    <input 
+                                        name="lawyer[specialization]" 
+                                        placeholder="e.g., Criminal Law, Corporate Law" 
+                                        type="text"
+                                        class="form-control"
+                                        required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="image" class="form-label">
+                                        <i class="fas fa-image me-2"></i>Profile Image URL
+                                    </label>
+                                    <input 
+                                        name="lawyer[image]" 
+                                        placeholder="Enter image URL" 
+                                        type="url"
+                                        class="form-control"
+                                        required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="experience" class="form-label">
+                                        <i class="fas fa-clock me-2"></i>Years of Experience
+                                    </label>
+                                    <input 
+                                        name="lawyer[experience]" 
+                                        placeholder="Enter years of experience" 
+                                        type="number"
+                                        class="form-control"
+                                        min="0"
+                                        required>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">
+                                        <i class="fas fa-phone me-2"></i>Phone Number
+                                    </label>
+                                    <input 
+                                        name="lawyer[contact_info][phone]" 
+                                        placeholder="Enter your phone number"  
+                                        type="tel"
+                                        class="form-control"
+                                        required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">
+                                        <i class="fas fa-envelope me-2"></i>Email Address
+                                    </label>
+                                    <input 
+                                        name="lawyer[contact_info][email]" 
+                                        placeholder="Enter your email address"  
+                                        type="email"
+                                        class="form-control"
+                                        required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="city" class="form-label">
+                                        <i class="fas fa-city me-2"></i>City
+                                    </label>
+                                    <input 
+                                        name="lawyer[city]" 
+                                        placeholder="e.g., Indore"  
+                                        type="text"
+                                        class="form-control"
+                                        required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="state" class="form-label">
+                                        <i class="fas fa-map me-2"></i>State
+                                    </label>
+                                    <input 
+                                        name="lawyer[state]" 
+                                        placeholder="e.g., Madhya Pradesh"  
+                                        type="text"
+                                        class="form-control"
+                                        required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-dark btn-lg">
+                                <i class="fas fa-plus me-2"></i>Create Profile
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-        <div class="mb-3">
-            <lable for="city" class="form-label">City</lable>
-            <input 
-            name="lawyer[city]" 
-            placeholder="Indore"  
-            type="text"
-            class="form-control">
-        </div>
-        <div class="mb-3">
-            <lable for="state" class="form-label">State</lable>
-            <input 
-            name="lawyer[state]" 
-            placeholder="Madhya Pradesh"  
-            type="text"
-            class="form-control">
-        </div>
-        <br/>
-        <button class="btn btn-dark edit-btn mt-3">Add</button>
-        <br/><br/>
-    </form>
-</div>
+    </div>
 </div>

@@ -1,32 +1,57 @@
 <% layout("/layouts/boilerplate.ejs") %>
-<div class="row mt-3">
-    <div class="col-8 offset-3">
-        <h3>Lawyers Details : </h3>
-    </div>
-    <div class="card col-5 offset-3 show-card" >
-        <img 
-        src="<%= lawyer.image %>" 
-        class="card-img-top show-img" 
-        alt="lawyer_image">
-        <div class="card-body">
-          <p class="card-text">
-            <b>Name : <%= lawyer.name %></b><br />
-            Specialization : <%= lawyer.specialization %><br/>
-            Work Experience : <%= lawyer.experience %><br/>
-            Phone No : <%= lawyer.contact_info.phone %><br/>
-            Email : <%= lawyer.contact_info.email %><br/>
-            City : <%= lawyer.city %><br/>
-            State : <%= lawyer.state %><br/>
-        </p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <div class="text-center mb-4">
+                <h3>Lawyer Profile</h3>
+                <a href="/lawyers" class="btn btn-outline-secondary btn-sm">
+                    <i class="fas fa-arrow-left me-2"></i>Back to Lawyers
+                </a>
+            </div>
+            
+            <div class="card show-card">
+                <img src="<%= lawyer.image %>" class="card-img-top show-img" alt="<%= lawyer.name %>">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4 class="card-title text-primary mb-3"><%= lawyer.name %></h4>
+                            <p class="card-text">
+                                <strong><i class="fas fa-briefcase me-2"></i>Specialization:</strong><br>
+                                <span class="text-muted"><%= lawyer.specialization %></span>
+                            </p>
+                            <p class="card-text">
+                                <strong><i class="fas fa-clock me-2"></i>Experience:</strong><br>
+                                <span class="text-muted"><%= lawyer.experience %> years</span>
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="card-text">
+                                <strong><i class="fas fa-phone me-2"></i>Phone:</strong><br>
+                                <span class="text-muted"><%= lawyer.contact_info.phone %></span>
+                            </p>
+                            <p class="card-text">
+                                <strong><i class="fas fa-envelope me-2"></i>Email:</strong><br>
+                                <span class="text-muted"><%= lawyer.contact_info.email %></span>
+                            </p>
+                            <p class="card-text">
+                                <strong><i class="fas fa-map-marker-alt me-2"></i>Location:</strong><br>
+                                <span class="text-muted"><%= lawyer.city %>, <%= lawyer.state %></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="btns">
+                <a href="/lawyers/<%= lawyer._id %>/edit" class="btn btn-dark">
+                    <i class="fas fa-edit me-2"></i>Edit Profile
+                </a>
+                <form method="POST" action="/lawyers/<%= lawyer._id%>?_method=DELETE" class="d-inline">
+                    <button class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this profile?')">
+                        <i class="fas fa-trash me-2"></i>Delete Profile
+                    </button>
+                </form>
+            </div>
         </div>
-    </div>
-    <br />
-    <div class="btns">
-        <a href="/lawyers/<%= lawyer._id %>/edit" class="btn btn-dark col-1 offset-3 mb-4"">
-            Edit 
-        </a>
-         <form method="POST" action="/lawyers/<%= lawyer._id%>?_method=DELETE">
-            <button class="btn btn-dark offset-5 mb-4">Delete</button>
-        </form>
     </div>
 </div>
